@@ -5,7 +5,9 @@
 #include <cstring>
 
 extern "C" size_t read_file(char *path, size_t path_size, char **out) {
-    FILE *file = fopen(strdup(std::string(path, path_size).c_str()), "rb");
+    char *cpath = strdup(std::string(path, path_size).c_str());
+    FILE *file = fopen(cpath, "rb");
+    free(cpath);
     fseek(file, 0, SEEK_END);
     long file_size = ftell(file);
     fseek(file, 0, SEEK_SET);
