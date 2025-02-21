@@ -17,11 +17,3 @@ extern "C" size_t read_file(char *path, size_t path_size, char **out) {
     *out = value;
     return file_size;
 }
-
-extern "C" void print_long(long value) {
-    printf("%ld", value);
-}
-
-extern "C" void println_long(long value) {
-    printf("%ld\n", value);
-}
